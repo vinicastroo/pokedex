@@ -180,7 +180,7 @@ export default function Home() {
                 {pokemon.types.map((type, index) => (
                   <Image
                     key={index}
-                    src={`/types/${type}.svg`}
+                    src={`/${type}.svg`}
                     width={50}
                     height={50}
                     alt={type}
