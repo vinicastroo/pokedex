@@ -138,11 +138,11 @@ export default function Home() {
     )
   }
   return (
-    <div className={`h-screen w-screen ${currentColor} p-4 lg:p-12`}>
+    <div className={`h-full min-h-screen w-full ${currentColor} p-4 lg:p-12`}>
       {pokemon && (
         <>
-          <div className="flex w-full items-center justify-between ">
-            <div className="flex flex-col space-y-1 text-white">
+          <div className="flex w-full flex-col-reverse items-center justify-between gap-4 lg:flex-row">
+            <div className="flex flex-row items-center gap-4 space-y-1 text-white lg:flex-col">
               <strong className="text-xl">#{pokemon.id}</strong>
               <strong className="text-4xl capitalize">{pokemon.name}</strong>
             </div>
@@ -203,8 +203,8 @@ export default function Home() {
                 }}
                 className="cursor-pointer rounded-md px-4 py-2 hover:bg-black hover:opacity-80"
               >
-                <ChevronLeft size={24} className="text-white" />
-                <ChevronUp size={24} className="hidden text-white lg:visible" />
+                <ChevronLeft size={24} className="text-white lg:hidden" />
+                <ChevronUp size={24} className="hidden text-white lg:inline" />
               </button>
 
               {pages.map((number) => (
@@ -226,10 +226,10 @@ export default function Home() {
                 }}
                 className=" cursor-pointer rounded-md px-4  py-2 hover:bg-black hover:opacity-80"
               >
-                <ChevronRight size={24} className="text-white" />
+                <ChevronRight size={24} className="text-white lg:hidden" />
                 <ChevronDown
                   size={24}
-                  className="hidden text-white lg:visible"
+                  className="hidden text-white lg:inline"
                 />
               </button>
             </div>
