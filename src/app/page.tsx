@@ -7,6 +7,26 @@ import api from '@/services/api'
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Logo } from '@/assets/logo'
+import {
+  BugIcon,
+  DarkIcon,
+  DragonIcon,
+  ElectricIcon,
+  FairyIcon,
+  FightingIcon,
+  FireIcon,
+  FlyingIcon,
+  GhostIcon,
+  GrassIcon,
+  GroundIcon,
+  IceIcon,
+  NormalIcon,
+  PoisonIcon,
+  PsychicIcon,
+  RockIcon,
+  SteelIcon,
+  WaterIcon,
+} from '@/assets/typesIcons'
 
 interface SpritesProps {
   other: {
@@ -27,7 +47,62 @@ interface PokemonProps {
   sprites: SpritesProps
   types: string[]
 }
-
+function Type({ type }: { type: string }) {
+  if (type === 'bug') {
+    return <BugIcon />
+  }
+  if (type === 'dark') {
+    return <DarkIcon />
+  }
+  if (type === 'dragon') {
+    return <DragonIcon />
+  }
+  if (type === 'electric') {
+    return <ElectricIcon />
+  }
+  if (type === 'fairy') {
+    return <FairyIcon />
+  }
+  if (type === 'fighting') {
+    return <FightingIcon />
+  }
+  if (type === 'fire') {
+    return <FireIcon />
+  }
+  if (type === 'flying') {
+    return <FlyingIcon />
+  }
+  if (type === 'ghost') {
+    return <GhostIcon />
+  }
+  if (type === 'grass') {
+    return <GrassIcon />
+  }
+  if (type === 'ground') {
+    return <GroundIcon />
+  }
+  if (type === 'ice') {
+    return <IceIcon />
+  }
+  if (type === 'normal') {
+    return <NormalIcon />
+  }
+  if (type === 'poison') {
+    return <PoisonIcon />
+  }
+  if (type === 'psychic') {
+    return <PsychicIcon />
+  }
+  if (type === 'rock') {
+    return <RockIcon />
+  }
+  if (type === 'steel') {
+    return <SteelIcon />
+  }
+  if (type === 'water') {
+    return <WaterIcon />
+  }
+}
 export default function Home() {
   const [pokemon, setPokemon] = useState<PokemonProps | null>(null)
   const [loading, setLoading] = useState(true)
@@ -142,7 +217,7 @@ export default function Home() {
       {pokemon && (
         <>
           <div className="flex w-full flex-col-reverse items-center justify-between gap-4 lg:flex-row">
-            <div className="flex flex-row items-center gap-4 space-y-1 text-white lg:flex-col">
+            <div className="flex flex-row items-center gap-4 space-y-1 text-white">
               <strong className="text-xl">#{pokemon.id}</strong>
               <strong className="text-4xl capitalize">{pokemon.name}</strong>
             </div>
@@ -178,17 +253,14 @@ export default function Home() {
             <div className="flex flex-col gap-4">
               <div className="flex gap-4">
                 {pokemon.types.map((type, index) => (
-                  <Image
-                    key={index}
-                    src={`/${type}.svg`}
-                    width={50}
-                    height={50}
-                    alt={type}
-                  />
+                  <Type key={index} type={type} />
                 ))}
               </div>
-              <strong className="text-white">Bio</strong>
-              <p className="text-white">{pokemon.bio}</p>
+
+              <div>
+                <strong className="text-white">Bio</strong>
+                <p className="text-white">{pokemon.bio}</p>
+              </div>
             </div>
 
             <div className="flex items-center justify-center gap-2 lg:flex-col  ">
